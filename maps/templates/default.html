@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> 
+    </script> 
+      
+    <script src= 
+"https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"> 
+    </script> 
+
+    <title>Interactive map</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Drag the map and zoom appropriately so that required area is in the below box.
+        </h1>
+    </div>
+    <div style='text-align: center;'>
+    <div id='map' style='width: 400px; height: 300px; display:inline-block;'></div>
+    </div>
+    <script>
+        var a;
+        var b;
+        var tmp;
+        function initMap(){
+            var location = {lat:18.516726,lng:73.856255};
+            var map = new google.maps.Map(document.getElementById("map"),
+            {
+                zoom : 5,
+                center : location
+            });
+            // var marker =  new google.maps.Marker({
+            //     position : location,
+            //     map : map
+            // })
+            map.addListener('click', function(mapsMouseEvent) {
+            a = mapsMouseEvent.latLng.lat();
+            b = mapsMouseEvent.latLng.lng();
+            tmp = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/"+b+","+a+",9,0/400x300?access_token=pk.eyJ1IjoiZnJlYWtjYXAiLCJhIjoiY2thdDVwY25uMHFiajMwbXNyankxM3hhciJ9.jvvDKXA3O8cQwqt2d9zK3A";
+            document.getElementById("previewImage").innerHTML = "<img src="+tmp+"></img>"; 
+            document.getElementById("dnld").href = tmp;
+            document.getElementById("dnld").download = "ab.jpg"; 
+        });
+        }    
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKcJFnP1YprWfOQ3BEIW1HpoPycRRngW4&callback=initMap">
+    </script>
+    <a href="#" id="dnld" download="abc">Save</a>
+    <!-- <input id="btn-Preview-Image" type="button"
+                value="Preview" />   -->
+
+    <h3>Preview :</h3> 
+    <div id="previewImage"></div>           
+    
+    
+</body>
+</html>
