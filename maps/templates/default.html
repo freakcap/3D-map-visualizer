@@ -24,6 +24,7 @@
         var a;
         var b;
         var tmp;
+        var cnt=0;
         function initMap(){
             var location = {lat:18.516726,lng:73.856255};
             var map = new google.maps.Map(document.getElementById("map"),
@@ -40,7 +41,11 @@
             b = mapsMouseEvent.latLng.lng();
             tmp = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/"+b+","+a+",9,0/400x300?access_token=pk.eyJ1IjoiZnJlYWtjYXAiLCJhIjoiY2thdDVwY25uMHFiajMwbXNyankxM3hhciJ9.jvvDKXA3O8cQwqt2d9zK3A";
             document.getElementById("previewImage").innerHTML = "<img src="+tmp+"></img>"; 
-
+            cnt = cnt + 1;
+            if(cnt === 7)
+            {
+                document.getElementById("btn3d").innerHTML = "<button onclick=\"document.getElementById('visualize').click();\">Visualize in 3D</button>"; 
+            }    
             // fetch('', {
             // method: 'post',
             // headers: {
@@ -61,14 +66,12 @@
     <!-- <input id="btn-Preview-Image" type="button"
                 value="Preview" />   -->
 
-    <h2>Preview :</h2> 
-    <div id="previewImage" style="text-align: center;"></div>    
-    <div>
-        <a href="http://localhost:8000/visualize/" id="visualize"></a>
-        <button onclick="document.getElementById('visualize').click();">Visualize in 3D</button>
-
-    </div>       
     
-    
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Preview of the selected region :</h2> 
+    <div id="previewImage" style="text-align: center;"></div>   
+    <br> 
+    <a href="http://localhost:8000/visualize/" id="visualize"></a>
+    <div id="btn3d" style="text-align: center;"></div>       
 </body>
 </html>
