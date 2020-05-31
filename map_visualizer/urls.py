@@ -4,5 +4,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('maps.urls')),
+    path('visualize/',include('visualizer.urls')),
+    path('maps/',include('maps.urls')),
 ]
