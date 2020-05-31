@@ -5,7 +5,7 @@ A small project to visualize selected parts or regions on map in 3D map similar 
 
 Django 2.x, Babylonjs, Google Maps Api, Mapbox static Api.
 
-## Implementation:
+## How to use:
 
 Select the center of region to be selected by clicking on an embedded google map.(You can customize the scope of region by tweaking with the zoom parameter)
 After selecting appropriate number of regions click on visualize.
