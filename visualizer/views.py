@@ -8,9 +8,6 @@ def visualize(request):
     create_sprite_atlas()
     return render(request, 'visualize.html', {})
 
-def atlas(request):
-    return render(request,'spritesheet.png', {})
-
 def create_sprite_atlas():
     max_frames_row = 10.0
     frames = []
